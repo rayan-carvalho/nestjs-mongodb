@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://regconteinerportalaluno.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_7535a6c7ac944379b338e718c6f31097 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_6bdae09702df49bc9987727f567b6ce7 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_812e30d7494e45b9b0785b4a2ab0df8e }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_08c64a9073d74852bf84fc49f347f120 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: regconteinerportalaluno.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7535a6c7ac944379b338e718c6f31097 }}/nestjsmongodb:${{ github.sha }}
+        tags: regconteinerportalaluno.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_812e30d7494e45b9b0785b4a2ab0df8e }}/nestjsmongodb:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'webapp-serv-api-hml'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d56b70fb8bd74b75b7b447e26633d0b0 }}
-        images: 'regconteinerportalaluno.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7535a6c7ac944379b338e718c6f31097 }}/nestjsmongodb:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bb0ce66076f04ce9b0b3d94e27c91200 }}
+        images: 'regconteinerportalaluno.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_812e30d7494e45b9b0785b4a2ab0df8e }}/nestjsmongodb:${{ github.sha }}'
