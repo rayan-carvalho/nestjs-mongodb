@@ -7,7 +7,9 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGODB_DATABASE_URL),
+    MongooseModule.forRoot(
+      'mongodb+srv://rayancarvalho:LhpjtY0FLxiDm6r8@cluster0.brrloy7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' /*process.env.MONGODB_DATABASE_URL*/,
+    ),
     UsersModule,
     PostsModule,
   ],
